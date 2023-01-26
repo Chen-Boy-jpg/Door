@@ -12,6 +12,7 @@ let socket: Socket;
 const Door = () => {
   const [openState, setOpenState] = useState(true);
   const [closeState, setCloseState] = useState(false);
+  sessionStorage.removeItem("isAuth");
   useEffect(() => {
     socket = io("http://1.34.200.114:3001", { transports: ["websocket"] });
 
