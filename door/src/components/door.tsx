@@ -8,13 +8,14 @@ interface Socket {
   disconnect: () => void;
 }
 let socket: Socket;
+const { VITE_API_URL } = import.meta.env;
 
 const Door = () => {
   const [openState, setOpenState] = useState(true);
   const [closeState, setCloseState] = useState(false);
   sessionStorage.removeItem("isAuth");
   useEffect(() => {
-    socket = io("http://1.34.200.114:3001", { transports: ["websocket"] });
+    socket = io(VITE_API_URL, { transports: ["websocket"] });
 
     socket.on("message", (data: any) => {
       console.log(data);
