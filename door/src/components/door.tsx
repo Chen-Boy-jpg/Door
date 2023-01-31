@@ -42,7 +42,7 @@ const Door = () => {
         className={openState ? "btn-open-enable" : "btn-open-disable"}
         onClick={open}
       >
-        OPEN
+        <div>OPEN</div>
       </div>
       <div
         className={closeState ? "btn-close-enable" : "btn-close-disable"}

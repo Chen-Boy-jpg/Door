@@ -9,35 +9,62 @@ $white: white
     user-select: none
     background: $background
     color: $color
-    width: 30rem
-    height: 10rem
-    border-radius: 2.5rem
+    width: 20rem
+    height: 20rem
+    border-radius: 100%
     font-size: 5rem
     text-align: center
-    line-height: 10rem
+    line-height: 20rem
+@mixin phone()
+    @media(max-width:768px)
+        @content
+
 *
     margin: 0
     padding: 0
     box-sizing: border-box
 
 .btn-group
+    align-items: center
     width: 100vw
-    height: 50vh
+    height: 100vh
     display: flex
     justify-content: center
+    gap: 1rem
     .btn-open-enable
         @include buttonStyle($color:$white,$background:$enableOpenBackground )
+        @include phone()
+            width: 10rem
+            height: 10rem
+            line-height: 10rem
+            font-size: 3rem
         &:hover
             background: $hoverBackground
+
     .btn-open-disable
         @include buttonStyle($color:$white ,$background:$disableBackground )
+        @include phone()
+            width: 10rem
+            height: 10rem
+            line-height: 10rem
+            font-size: 3rem
         pointer-events: none
 
     .btn-close-enable
         @include buttonStyle($color:$white ,$background:$enableCloseBackground)
+        @include phone()
+            width: 10rem
+            height: 10rem
+            line-height: 10rem
+            font-size: 3rem
         &:hover
             background: $hoverBackground
 
     .btn-close-disable
         @include buttonStyle($color:$white ,$background:$disableBackground )
+        @include phone()
+            width: 10rem
+            height: 10rem
+            line-height: 10rem
+            font-size: 3rem
         pointer-events: none

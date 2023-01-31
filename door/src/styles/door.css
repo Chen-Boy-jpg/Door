@@ -5,10 +5,12 @@
 }
 
 .btn-group {
+  align-items: center;
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  gap: 1rem;
 }
 .btn-group .btn-open-enable {
   -webkit-user-select: none;
@@ -17,12 +19,20 @@
           user-select: none;
   background: linear-gradient(90deg, #4776E6 0%, #8E54E9 100%);
   color: white;
-  width: 30rem;
-  height: 10rem;
-  border-radius: 2.5rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
   font-size: 5rem;
   text-align: center;
-  line-height: 10rem;
+  line-height: 20rem;
+}
+@media (max-width: 768px) {
+  .btn-group .btn-open-enable {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3rem;
+  }
 }
 .btn-group .btn-open-enable:hover {
   background: linear-gradient(90deg, #12C2E9 0%, #C471ED 50.02%, #F64F59 100%, #F64F59 100%);
@@ -34,13 +44,21 @@
           user-select: none;
   background: #BDBDBD;
   color: white;
-  width: 30rem;
-  height: 10rem;
-  border-radius: 2.5rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
   font-size: 5rem;
   text-align: center;
-  line-height: 10rem;
+  line-height: 20rem;
   pointer-events: none;
+}
+@media (max-width: 768px) {
+  .btn-group .btn-open-disable {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3rem;
+  }
 }
 .btn-group .btn-close-enable {
   -webkit-user-select: none;
@@ -49,12 +67,20 @@
           user-select: none;
   background: linear-gradient(90deg, #FF9966 0%, #FF5E62 100%);
   color: white;
-  width: 30rem;
-  height: 10rem;
-  border-radius: 2.5rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
   font-size: 5rem;
   text-align: center;
-  line-height: 10rem;
+  line-height: 20rem;
+}
+@media (max-width: 768px) {
+  .btn-group .btn-close-enable {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3rem;
+  }
 }
 .btn-group .btn-close-enable:hover {
   background: linear-gradient(90deg, #12C2E9 0%, #C471ED 50.02%, #F64F59 100%, #F64F59 100%);
@@ -66,11 +92,19 @@
           user-select: none;
   background: #BDBDBD;
   color: white;
-  width: 30rem;
-  height: 10rem;
-  border-radius: 2.5rem;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
   font-size: 5rem;
   text-align: center;
-  line-height: 10rem;
+  line-height: 20rem;
   pointer-events: none;
+}
+@media (max-width: 768px) {
+  .btn-group .btn-close-disable {
+    width: 10rem;
+    height: 10rem;
+    line-height: 10rem;
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=door.css.map */
