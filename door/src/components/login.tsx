@@ -7,19 +7,26 @@ import { requestWithConfig } from "../sevices/request";
 import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState<String>("");
-  const [password, setPassword] = useState<String>("");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const [isUser, setIsUser] = useState(false);
+  const [ischecked, setIschecked] = useState<boolean | undefined>(false);
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const checkRef = useRef<HTMLInputElement>(null);
 
   async function handleSubmit() {
     let res: any = await requestWithConfig({
       username: username,
       password: password,
     });
+
     if (res.status === "OK") {
       setIsUser(true);
+      if (ischecked) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+      }
       sessionStorage.setItem("isAuth", "pass");
     } else {
       console.log("Account or password incorrect");
@@ -37,6 +44,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="USERNAME"
+            defaultValue={localStorage.getItem("username") as string}
             ref={usernameRef}
             onChange={(e) =>
               usernameRef.current && setUsername(usernameRef.current.value)
@@ -48,10 +56,19 @@ const Login = () => {
           <input
             type="password"
             placeholder="PASSWORD"
+            defaultValue={localStorage.getItem("password") as string}
             ref={passwordRef}
             onChange={() =>
               passwordRef.current && setPassword(passwordRef.current.value)
             }
+          />
+        </div>
+        <div className="input-checkbox">
+          <div className="iuput-checkbox-label">記住我?</div>
+          <input
+            type="checkbox"
+            ref={checkRef}
+            onChange={() => setIschecked(checkRef.current?.checked)}
           />
         </div>
         <div className="login-btn">
