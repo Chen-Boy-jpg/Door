@@ -7,8 +7,8 @@ import { requestWithConfig } from "../sevices/request";
 import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>(localStorage.getItem("username") as string);
+  const [password, setPassword] = useState<string>(localStorage.getItem("password") as string);
   const [isUser, setIsUser] = useState(false);
   const [ischecked, setIschecked] = useState<boolean | undefined>(false);
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -16,8 +16,8 @@ const Login = () => {
   const checkRef = useRef<HTMLInputElement>(null);
 
   async function handleSubmit() {
-    let res: any = await requestWithConfig({
-      username: username,
+    const res: any = await requestWithConfig({
+      username:  username,
       password: password,
     });
 
